@@ -6,7 +6,7 @@
 /*   By: rlaghsal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:31:59 by rlaghsal          #+#    #+#             */
-/*   Updated: 2026/02/07 15:32:18 by rlaghsal         ###   ########.fr       */
+/*   Updated: 2026/02/07 15:47:59 by rlaghsal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,22 @@ int	error_exit(t_stack **stack)
 {
 	free_stack(stack);
 	write(2, "Error\n", 6);
+	return (1);
+}
+
+int	free_split(char **splited)
+{
+	int	i;
+
+	if (!splited)
+		return (1);
+	i = 0;
+	while (splited[i])
+	{
+		free(splited[i]);
+		i++;
+	}
+	free(splited);
 	return (1);
 }
 
@@ -32,7 +48,8 @@ int	main(int argc, char **argv)
 	{
 		splited = ft_split(argv[1], ' ');
 		if (init_stack_a(&stack_a, splited, 0))
-			return (free(splited), 1);
+			return (1);
+		free_split(splited);
 	}
 	else
 	{
