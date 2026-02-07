@@ -35,27 +35,34 @@ int	free_split(char **splited)
 	return (1);
 }
 
+int	init_splited(t_stack **stack_a, char **argv)
+{
+	char	**splited;
+
+	splited = ft_split(argv[1], ' ');
+	if (init_stack_a(stack_a, splited, 0))
+		return (1);
+	free_split(splited);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
-	t_stack *stack_a;
+	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**splited;
 	int		*tab;
-	
+
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc == 2)
 	{
-		splited = ft_split(argv[1], ' ');
-		if (init_stack_a(&stack_a, splited, 0))
-			return (1);
-		free_split(splited);
-	}
-	else
-	{
-		if (init_stack_a(&stack_a, argv, 1))
+		if (init_splited(&stack_a, argv))
 			return (1);
 	}
+	else if (init_stack_a(&stack_a, argv, 1))
+		return (1);
+	if (is_stack_sorted(stack_a))
+		return (0);
 	tab = init_tab(stack_a, get_size_stack(stack_a));
 	tab = bubble_sort(tab, get_size_stack(stack_a));
 	init_index(&stack_a, tab, get_size_stack(stack_a));

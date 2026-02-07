@@ -57,5 +57,6 @@ void	rrr(t_stack **a, t_stack **b);
 
 void	radix_sort(t_stack **a, t_stack **b, int size);
 int	get_size_stack(t_stack *stack);
+int	is_stack_sorted(t_stack *a);
 
 #endif

@@ -28,7 +28,7 @@ int	get_max_bits(int size)
 
 int	get_size_stack(t_stack *stack)
 {
-	int	i;
+	int		i;
 	t_stack	*current;
 
 	i = 0;
@@ -41,11 +41,27 @@ int	get_size_stack(t_stack *stack)
 	return (i);
 }
 
+int	is_stack_sorted(t_stack *a)
+{
+	t_stack	*current;
+	t_stack	*next;
+
+	current = a;
+	while (current->next != NULL)
+	{
+		next = current->next;
+		if (current->value > next->value)
+			return (0);
+		current = next;
+	}
+	return (1);
+}
+
 void	radix_sort(t_stack **a, t_stack **b, int size)
 {
-	int	i;
-	int	j;
-	int	max_bits;
+	int		i;
+	int		j;
+	int		max_bits;
 	t_stack	*head;
 
 	max_bits = get_max_bits(size);

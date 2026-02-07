@@ -49,6 +49,8 @@ int	error_syntax(char *nb)
 {
 	int	i;
 
+	if (ft_strlen(nb) == 0)
+		return (1);
 	i = 0;
 	if (nb[i] == '+' || nb[i] == '-')
 		i++;
