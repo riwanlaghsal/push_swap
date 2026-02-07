@@ -51,6 +51,10 @@ int	error_syntax(char *nb)
 
 	if (ft_strlen(nb) == 0)
 		return (1);
+	if (nb[0] == '+' && ft_strlen(nb) > 10)
+		return (1);
+	else if (ft_strlen(nb) > 11)
+		return (1);
 	i = 0;
 	if (nb[i] == '+' || nb[i] == '-')
 		i++;

@@ -73,5 +73,6 @@ int	*init_tab(t_stack *head, int size)
 		current = current->next;
 		i++;
 	}
+	tab = bubble_sort(tab, get_size_stack(head));
 	return (tab);
 }
