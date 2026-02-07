@@ -6,7 +6,7 @@
 /*   By: rlaghsal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:31:59 by rlaghsal          #+#    #+#             */
-/*   Updated: 2026/02/03 11:47:03 by rlaghsal         ###   ########.fr       */
+/*   Updated: 2026/02/07 15:32:18 by rlaghsal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int	main(int argc, char **argv)
 	{
 		splited = ft_split(argv[1], ' ');
 		if (init_stack_a(&stack_a, splited, 0))
-			return (1);
-		free(splited);
+			return (free(splited), 1);
 	}
 	else
 	{
