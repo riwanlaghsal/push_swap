@@ -12,12 +12,10 @@
 
 #include "push_swap.h"
 
-// faire fonction error_exit pour les cas où l'init se passe mal comme ça write_error direct
-
 int	free_stack(t_stack **stack)
 {
-	t_stack *current;
-	t_stack *prev;
+	t_stack	*current;
+	t_stack	*prev;
 
 	if (!stack || !*stack)
 		return (-1);
@@ -51,10 +49,6 @@ int	error_syntax(char *nb)
 
 	if (ft_strlen(nb) == 0)
 		return (1);
-	if (nb[0] == '+' && ft_strlen(nb) > 10)
-		return (1);
-	else if (ft_strlen(nb) > 11)
-		return (1);
 	i = 0;
 	if (nb[i] == '+' || nb[i] == '-')
 		i++;
@@ -68,18 +62,46 @@ int	error_syntax(char *nb)
 	return (0);
 }
 
+long	ft_atol(char *nptr)
+{
+	long	sign;
+	long	i;
+	long	n;
+
+	i = 0;
+	n = 0;
+	sign = 1;
+	while ((nptr[i] == '\n' || nptr[i] == '\t' || nptr[i] == '\r'
+			|| nptr[i] == ' ' || nptr[i] == '\v' || nptr[i] == '\f'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		n *= 10;
+		n += nptr[i] - '0';
+		i++;
+	}
+	n *= sign;
+	return (n);
+}
+
 int	init_stack_a(t_stack **stack_a, char **argv, int flag)
 {
-	int	n;
-	int	i;
+	long	n;
+	int		i;
 
 	i = flag;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
 			return (error_exit(stack_a));
-		n = ft_atoi(argv[i]);
-		if (n < INT_MIN || n > INT_MAX)
+		n = ft_atol(argv[i]);
+		if (n < -2147483648 || n > 2147483647)
 			return (error_exit(stack_a));
 		if (error_doublon(*stack_a, n))
 			return (error_exit(stack_a));

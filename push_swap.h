@@ -20,20 +20,20 @@
 
 typedef struct s_stack
 {
-	int	value;
-	int	index;
-	struct s_stack *next;
-	struct s_stack *prev;
-} t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
 
-int	init_stack_a(t_stack **stack_a, char **argv, int flag);
+int		init_stack_a(t_stack **stack_a, char **argv, int flag);
 void	append_child(t_stack **stack_a, int val);
-int	free_stack(t_stack **stack);
-int	error_exit(t_stack **stack);
-int	*init_tab(t_stack *head, int size);
-int	*bubble_sort(int *tab, int size);
+int		free_stack(t_stack **stack);
+int		error_exit(t_stack **stack);
+int		*init_tab(t_stack *head, int size);
+int		*bubble_sort(int *tab, int size);
 void	init_index(t_stack **head, int *tab, int size);
-int	get_size(char **splited);
+int		get_size(char **splited);
 t_stack	*get_last_element(t_stack *head);
 
 // instructions de back
@@ -57,7 +57,7 @@ void	rrr(t_stack **a, t_stack **b);
 
 void	radix_sort(t_stack **a, t_stack **b, int size);
 void	easy_sort(t_stack **a, int size);
-int	get_size_stack(t_stack *stack);
-int	is_stack_sorted(t_stack *a);
+int		get_size_stack(t_stack *stack);
+int		is_stack_sorted(t_stack *a);
 
 #endif

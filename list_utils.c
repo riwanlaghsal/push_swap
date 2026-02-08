@@ -14,7 +14,7 @@
 
 t_stack	*create_element(int val)
 {
-	t_stack *new_element;
+	t_stack	*new_element;
 
 	new_element = malloc(sizeof(t_stack));
 	if (!new_element)
@@ -39,8 +39,8 @@ t_stack	*get_last_element(t_stack *head)
 
 void	append_child(t_stack **head, int val)
 {
-	t_stack *last_element;
-	t_stack *new_element;
+	t_stack	*last_element;
+	t_stack	*new_element;
 
 	new_element = create_element(val);
 	if (*head == NULL)
@@ -56,8 +56,8 @@ void	append_child(t_stack **head, int val)
 
 int	*init_tab(t_stack *head, int size)
 {
-	int	i;
-	int	*tab;
+	int		i;
+	int		*tab;
 	t_stack	*current;
 
 	if (!head)

@@ -51,9 +51,9 @@ int	init_splited(t_stack **stack_a, char **argv)
 void	easy_sort(t_stack **a, int size)
 {
 	t_stack	*head;
-	int	first;
-	int	second;
-	int	third;
+	int		first;
+	int		second;
+	int		third;
 
 	if (size == 2)
 		return (rra(a));

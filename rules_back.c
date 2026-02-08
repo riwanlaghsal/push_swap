@@ -32,7 +32,7 @@ void	swap(t_stack **stack)
 
 void	push(t_stack **src, t_stack **dest)
 {
-	t_stack *to_move;
+	t_stack	*to_move;
 
 	if (!src || !*src)
 		return ;
@@ -56,7 +56,7 @@ void	push(t_stack **src, t_stack **dest)
 
 void	rotate(t_stack **stack)
 {
-	t_stack *first;
+	t_stack	*first;
 	t_stack	*last;
 
 	if (!stack || !*stack || !(*stack)->next)

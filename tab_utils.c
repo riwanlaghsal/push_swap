@@ -54,7 +54,7 @@ int	*bubble_sort(int *tab, int size)
 void	init_index(t_stack **head, int *tab, int size)
 {
 	t_stack	*current;
-	int	i;
+	int		i;
 
 	if (!head || !*head)
 		return ;
